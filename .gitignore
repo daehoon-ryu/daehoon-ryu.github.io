@@ -1,0 +1,16 @@
+# Secrets: never commit keys
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Source documents with personal info stay local
+*.pdf
+*.docx
+*.hwp
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

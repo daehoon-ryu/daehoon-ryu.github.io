@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DaehoonRyu | 류대훈</title>
+  <meta name="description" content="Venture capital investment manager with an IPO and corporate finance background. 벤처캐피탈 투자심사역 류대훈.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f6f7f9;
+      --text: #1a1d23;
+      --muted: #5b6270;
+      --line: #e3e6eb;
+      --accent: #1f4e8c;
+      --accent-soft: #e8eef7;
+      --todo: #fff3bf;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111418;
+        --surface: #1a1e24;
+        --text: #e8eaee;
+        --muted: #a0a7b4;
+        --line: #2b313a;
+        --accent: #7fa8e0;
+        --accent-soft: #1d2a3d;
+        --todo: #4a4010;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+    /* language switch */
+    html[lang="ko"] [data-lang="en"],
+    html[lang="en"] [data-lang="ko"] { display: none !important; }
+
+    header.top {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
+    .brand { font-weight: 700; letter-spacing: -0.01em; }
+    nav.links { display: flex; gap: 18px; font-size: 14px; }
+    nav.links a { color: var(--muted); text-decoration: none; }
+    nav.links a:hover { color: var(--accent); }
+    .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+    .lang-toggle button {
+      border: 0; background: transparent; color: var(--muted);
+      font: inherit; font-size: 13px; padding: 4px 12px; cursor: pointer;
+    }
+    .lang-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+    .hero { padding: 72px 0 48px; }
+    .hero h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.02em; }
+    .hero .role { color: var(--accent); font-weight: 600; margin: 0 0 20px; }
+    .hero .tagline { font-size: clamp(18px, 2.6vw, 21px); color: var(--text); margin: 0 0 28px; max-width: 680px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .chips li { background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+
+    section { padding: 40px 0; border-top: 1px solid var(--line); }
+    section h2 { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px; }
+    p { margin: 0 0 14px; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+    .stat { background: var(--surface); border-radius: 12px; padding: 16px; }
+    .stat b { display: block; font-size: 26px; color: var(--accent); line-height: 1.2; }
+    .stat span { font-size: 13px; color: var(--muted); }
+
+    .job { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 18px 0; }
+    .job + .job { border-top: 1px dashed var(--line); }
+    .job .when { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+    .job h3 { margin: 0; font-size: 18px; }
+    .job .sub { color: var(--muted); font-size: 14px; margin: 2px 0 10px; }
+    .job ul { margin: 0; padding-left: 18px; }
+    .job li { margin-bottom: 6px; }
+    .job li ul { margin-top: 6px; color: var(--muted); font-size: 15px; }
+
+    .deals { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .deal { border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .deal h3 { margin: 0 0 4px; font-size: 16px; }
+    .deal .tag { font-size: 12px; color: var(--accent); font-weight: 600; }
+    .deal p { font-size: 14px; color: var(--muted); margin: 6px 0 0; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .list { list-style: none; margin: 0; padding: 0; }
+    .list li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .list li:last-child { border-bottom: 0; }
+    .list small { display: block; color: var(--muted); }
+
+    .contact a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+
+    .todo { background: var(--todo); padding: 0 4px; border-radius: 4px; }
+
+    @media (max-width: 640px) {
+      nav.links { display: none; }
+      .hero { padding: 48px 0 36px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .job { grid-template-columns: 1fr; gap: 4px; }
+      .deals, .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <span class="brand"><span data-lang="ko">류대훈</span><span data-lang="en">DaehoonRyu</span></span>
+      <nav class="links" aria-label="Sections">
+        <a href="#about"><span data-lang="ko">소개</span><span data-lang="en">About</span></a>
+        <a href="#experience"><span data-lang="ko">경력</span><span data-lang="en">Experience</span></a>        <a href="#contact"><span data-lang="ko">연락</span><span data-lang="en">Contact</span></a>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-set-lang="ko" aria-pressed="true">KO</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" style="border-top:0">
+      <h1><span data-lang="ko">류대훈</span><span data-lang="en">DaehoonRyu</span></h1>
+      <p class="role">
+        <span data-lang="ko">책임심사역 · 윈베스트벤처투자</span>
+        <span data-lang="en">Senior Investment Manager · Winvest Venture Investment</span>
+      </p>
+      <p class="tagline">
+        <span data-lang="ko">위기를 기회로, 기회를 성과로</span>
+        <span data-lang="en">Crisis into opportunity, opportunity into results</span>
+      </p>
+      <ul class="chips">
+        <li>IPO</li>
+        <li>Venture Capital</li>
+        <li>KAIST PMBA</li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2><span data-lang="ko">소개</span><span data-lang="en">About</span></h2>
+      <p data-lang="ko">증권사에서 6년간 IPO와 채권·주식 발행 실무를 맡았고, 2026년 벤처투자회사 심사역으로 자리를 옮겼습니다.</p>
+      <p data-lang="ko">남들이 위기를 볼 때 기회를 찾고, 그 기회를 성과로 만드는 투자를 지향합니다.</p>
+      <p data-lang="ko">IPO를 비롯한 기업금융 실무 경험을 기반으로 파트너로서 기업의 성장과 상장까지의 여정을 함께합니다.</p>      <p data-lang="en">I spent six years executing IPOs and bond and equity offerings at a securities firm, and moved to a venture capital firm as an investment manager in 2026.</p>
+      <p data-lang="en">I invest by finding opportunity where others see crisis, and turning that opportunity into results.</p>
+      <p data-lang="en">Drawing on hands-on experience in IPOs and corporate finance, I walk with companies as a partner through their growth all the way to IPO.</p>    </section>
+
+    <section id="experience">
+      <h2><span data-lang="ko">경력</span><span data-lang="en">Experience</span></h2>
+
+      <div class="job">
+        <div class="when" data-since="2026-02"><span data-lang="ko">9개월</span><span data-lang="en">9 mos</span></div>
+        <div>
+          <h3><span data-lang="ko">윈베스트벤처투자</span><span data-lang="en">Winvest Venture Investment</span></h3>
+          <p class="sub"><span data-lang="ko">투자본부 · 책임심사역</span><span data-lang="en">Investment Division · Senior Investment Manager</span></p>
+          <ul>
+            <li><span data-lang="ko">벤처기업 투자 검토 및 투자</span><span data-lang="en">Reviewing and making venture investments</span></li>
+            <li><span data-lang="ko">포트폴리오사 사후관리 및 회수 전략 수립</span><span data-lang="en">Portfolio monitoring and exit planning</span></li>          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span data-lang="ko">6년 2개월</span><span data-lang="en">6 yrs 2 mos</span></div>
+        <div>
+          <h3><span data-lang="ko">신한투자증권</span><span data-lang="en">Shinhan Securities</span></h3>
+          <p class="sub"><span data-lang="ko">IPO2부 · 대리 (3년 1개월)</span><span data-lang="en">IPO Team 2 · Associate (3 yrs 1 mo)</span></p>
+          <ul>
+            <li><span data-lang="ko">IPO 실무 책임자로 3개사 상장 완료</span><span data-lang="en">Led execution on three completed IPOs</span>
+              <ul>
+                <li><span data-lang="ko">H사 (바이오): 코스닥 기술특례상장, 대표주관</span><span data-lang="en">Company H (Biotech): KOSDAQ technology special listing, lead manager</span></li>
+                <li><span data-lang="ko">H사 (조선해양 서비스): 유가증권시장 일반상장, 공동주관</span><span data-lang="en">Company H (Marine services): KOSPI standard listing, co-manager</span></li>
+                <li><span data-lang="ko">U사 (헬스케어): 코넥스 → 코스닥 이전상장, 대표주관</span><span data-lang="en">Company U (Healthcare): KONEX to KOSDAQ transfer listing, lead manager</span></li>
+              </ul>
+            </li>
+            <li><span data-lang="ko">비상장 투자 및 LP 출자 검토·집행</span><span data-lang="en">Reviewed and executed private investments and LP commitments</span>
+              <ul>
+                <li><span data-lang="ko">비상장 RCPS 투자 2건</span><span data-lang="en">Two private RCPS investments</span></li>
+                <li><span data-lang="ko">블라인드펀드 LP 출자 1건</span><span data-lang="en">One blind-fund LP commitment</span></li>
+              </ul>
+            </li>
+            <li><span data-lang="ko">SPAC 상장 및 관리</span><span data-lang="en">SPAC listing and management</span></li>          </ul>
+          <p class="sub" style="margin-top:16px"><span data-lang="ko">커버리지2부 · 주임 (3년 1개월)</span><span data-lang="en">Coverage Team 2 · Analyst (3 yrs 1 mo)</span></p>
+          <ul>
+            <li><span data-lang="ko">공모 채권·주식 발행 대표주관 실무</span><span data-lang="en">Lead-manager execution on public debt and equity offerings</span>
+              <ul>
+                <li><span data-lang="ko">회사채·후순위채·신종자본증권 25개사</span><span data-lang="en">Corporate, subordinated and hybrid capital bonds for 25 companies</span></li>
+                <li><span data-lang="ko">유상증자 1건</span><span data-lang="en">One rights offering</span></li>
+              </ul>
+            </li>
+            <li><span data-lang="ko">매출채권·신종자본증권 기초 자산유동화 실무</span><span data-lang="en">Asset-backed securitization (receivables and hybrid capital)</span></li>          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span data-lang="ko">4개월</span><span data-lang="en">4 mos</span></div>
+        <div>
+          <h3><span data-lang="ko">DB금융투자</span><span data-lang="en">DB Financial Investment</span></h3>
+          <p class="sub"><span data-lang="ko">투자전략부 · 리서치 어시스턴트 인턴</span><span data-lang="en">Investment Strategy · Research Assistant Intern</span></p>
+          <ul>
+            <li><span data-lang="ko">경제 및 매크로 애널리스트 리서치 지원</span><span data-lang="en">Supported economics and macro research</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="two-col">
+        <div>
+          <h2><span data-lang="ko">학력</span><span data-lang="en">Education</span></h2>
+          <ul class="list">
+            <li>
+              <strong>KAIST</strong>
+              <span data-lang="ko">Professional MBA (PMBA) 14기 · 재학 중</span>
+              <span data-lang="en">Professional MBA (PMBA), Class 14 · In progress</span>
+            </li>
+            <li>
+              <strong><span data-lang="ko">건국대학교</span><span data-lang="en">Konkuk University</span></strong>
+              <span data-lang="ko">경영학 학사</span><span data-lang="en">B.B.A. in Business Administration</span>
+              <small>2019.08</small>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2><span data-lang="ko">자격</span><span data-lang="en">Certifications</span></h2>
+          <ul class="list">
+            <li><strong>CFA Charterholder</strong> <small>CFA Institute</small></li>
+            <li><span data-lang="ko">투자자산운용사</span><span data-lang="en">Certified Investment Manager (KOFIA)</span> <small>2021.01</small></li>
+            <li><span data-lang="ko">펀드·파생상품·증권 투자권유자문인력</span><span data-lang="en">Fund, Derivatives and Securities Investment Advisor (KOFIA)</span> <small>2020</small></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2><span data-lang="ko">연락</span><span data-lang="en">Contact</span></h2>
+      <p>
+        <span data-lang="ko">투자, 협업, 커피챗 모두 환영합니다.</span>
+        <span data-lang="en">Happy to talk about investments, collaboration, or just coffee.</span>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/daehoon-ryu-a65932145/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap">© 2026 DaehoonRyu</footer>
+
+  <script>
+    // Language toggle: saved choice > browser language > Korean
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll('[data-set-lang]');
+      function setLang(lang) {
+        root.setAttribute('lang', lang);
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
+        });
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+      }
+      var saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      var browser = (navigator.language || 'ko').toLowerCase().indexOf('ko') === 0 ? 'ko' : 'en';
+      setLang(saved === 'ko' || saved === 'en' ? saved : browser);
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+      });
+    })();
+
+    // Current-job tenure counts months from data-since (start month included)
+    (function () {
+      document.querySelectorAll('[data-since]').forEach(function (el) {
+        var p = el.getAttribute('data-since').split('-');
+        var now = new Date();
+        var months = (now.getFullYear() - Number(p[0])) * 12 + (now.getMonth() + 1 - Number(p[1])) + 1;
+        if (months < 1) return;
+        var y = Math.floor(months / 12), m = months % 12;
+        var ko = (y ? y + '년' : '') + (y && m ? ' ' : '') + (m ? m + '개월' : '');
+        var en = (y ? y + (y > 1 ? ' yrs' : ' yr') : '') + (y && m ? ' ' : '') + (m ? m + (m > 1 ? ' mos' : ' mo') : '');
+        el.querySelector('[data-lang="ko"]').textContent = ko;
+        el.querySelector('[data-lang="en"]').textContent = en;
+      });
+    })();
+  </script>
+</body>
+</html>
