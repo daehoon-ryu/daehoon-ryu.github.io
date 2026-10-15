@@ -158,6 +158,9 @@
       /* Photos in black and white so the four read as one set; colour returns on hover */
     .band img { filter: grayscale(1) contrast(1.05) !important; transition: filter .6s, transform 1.2s cubic-bezier(.2, .7, .2, 1), opacity 1.6s ease !important; }
     .band a:hover img, .band .scene:hover img { filter: none !important; }
+      /* Photo band: same height and position, but only as wide as the page column; navy fills the sides */
+    .band { position: relative; width: min(1072px, calc(100% - 48px)); margin: 0 auto; }
+    .band::before { content: ""; position: absolute; z-index: -1; left: 50%; translate: -50% 0; width: 100vw; top: 0; bottom: 0; background: #13284a; }
   </style>
 </head>
 <body>
